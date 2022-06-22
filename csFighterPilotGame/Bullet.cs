@@ -21,10 +21,13 @@ namespace csFighterPilotGame
         //make bullet
         public void MakeBullet(Form1 form)
         {
-            bullet.BackColor = System.Drawing.Color.Red;
-            bullet.Size = new System.Drawing.Size(5, 5);
-            bullet.Location = new System.Drawing.Point(X, Y);
-            bullet.Tag = "bullet";
+            bullet = new PictureBox
+            {
+                BackColor = System.Drawing.Color.Red,
+                Size = new System.Drawing.Size(5, 5),
+                Location = new System.Drawing.Point(X, Y),
+                Tag = "bullet"
+            };
             bullet.BringToFront();
             form.Controls.Add(bullet);
             timer2.Interval = bulletSpeed;
@@ -46,7 +49,7 @@ namespace csFighterPilotGame
             {
                 bullet.Location = new System.Drawing.Point(bullet.Location.X + 0, bullet.Location.Y + bulletSpeed);
             }
-            if (bullet.Left < 10 || bullet.Right > 800 - 10 || bullet.Top < 10 || bullet.Bottom > 600 - 10)
+            if (bullet.Left < 10 || bullet.Left > 800 - 10 || bullet.Top < 10 || bullet.Top > 600 - 10)
             {
                 timer2.Stop();
                 timer2.Dispose();

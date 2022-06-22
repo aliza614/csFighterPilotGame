@@ -37,13 +37,15 @@ namespace csFighterPilotGame
             {
                 //player is going left
                 isLeft = true;
+                //MessageBox.Show("going left");
             }
 
             //if key==;
             if (e.KeyCode == Keys.OemSemicolon)
-                //player is going right
+            {    //player is going right
                 isRight = true;
-
+                //MessageBox.Show("going right");
+            }
             //if key=j
             if (e.KeyCode == Keys.J)
             {    //player.angle="left"
@@ -80,12 +82,14 @@ namespace csFighterPilotGame
             {
                 //player is going left
                 isLeft = false;
+               
             }
 
             //if key==;
             if (e.KeyCode == Keys.OemSemicolon)
-                //player is going right
+            {    //player is going right
                 isRight = false;
+            }
             //if key==spacebar and you have ammo
             if (e.KeyCode == Keys.Space && ammo > 0)
             {
