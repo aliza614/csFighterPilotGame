@@ -263,6 +263,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.player);
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Fighter Pilot Game";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDown);

@@ -18,15 +18,17 @@ namespace csFighterPilotGame
         int points = 0;
         int speed = 20;
         int ammo = 20;
-        int bulletSpeed = 30;
-        int blockSpeed = 10;
+        internal const int BULLET_SPEED = 30;
+        internal int blockSpeed = 10;
         int score = 0;
         bool isGameOver = false;
         //if you change this must update bullet
-        public const int MAX_HEIGHT = 500, MAX_WIDTH = 800;
+        public const int MAX_HEIGHT = 300, MAX_WIDTH = 470;
+        
         public Form1()
         {
             InitializeComponent();
+            //this.WindowState = FormWindowState.Maximized;
         }
         public void OnKeyDown(object sender, KeyEventArgs e)
         {
@@ -106,6 +108,7 @@ namespace csFighterPilotGame
         }
         public void GameEngine(object o, EventArgs e)
         {
+            
             //check if still have life
             if (health > 1)
             {     //update progressbar
@@ -134,10 +137,12 @@ namespace csFighterPilotGame
             }
             if (isLeft && player.Left > 0)
             {
+                //MessageBox.Show("going left");
                 player.Left -= speed;
             }
             if (isRight && player.Left < MAX_WIDTH - 10)
             {
+                //MessageBox.Show("going right");
                 player.Left += speed;
             }
             //for each object a in program
@@ -226,12 +231,14 @@ namespace csFighterPilotGame
         private void DropAmmo()
         {
             Random random = new Random();
-            PictureBox ammo = new PictureBox();
-            ammo.Image = Properties.Resources.ammo_refill;
-            ammo.SizeMode = PictureBoxSizeMode.AutoSize;
-            ammo.Left = random.Next(10, (int)MAX_WIDTH - 10);
-            ammo.Top = random.Next(50, (int)MAX_HEIGHT - 10);
-            ammo.Tag = "ammoRefill";
+            PictureBox ammo = new PictureBox
+            {
+                Image = Properties.Resources.ammo_refill,
+                SizeMode = PictureBoxSizeMode.AutoSize,
+                Left = random.Next(10, (int)MAX_WIDTH - 10),
+                Top = random.Next(50, (int)MAX_HEIGHT - 10),
+                Tag = "ammoRefill"
+            };
             //for each control check if it intersects, call it again
             foreach (Control control in Controls)
             {
@@ -247,10 +254,14 @@ namespace csFighterPilotGame
         }
         private void Shoot(string direction)
         {
-            Bullet bullet = new Bullet();
-            bullet.direction = direction;
-            bullet.X = player.Left + player.Width / 2;
-            bullet.Y = player.Top + player.Height / 2;
+            //MessageBox.Show("now in shoot mode");
+            Bullet bullet = new Bullet
+            {
+                direction = direction,
+                X = player.Location.X + player.Width / 2,
+                Y = player.Location.Y + player.Height / 2
+            };
+            MessageBox.Show($"bullet.X: {bullet.X}, bullet.Y: {bullet.Y}, player.Top: {player.Top}");
             bullet.MakeBullet(this);
         }
         public bool IntersectsWith(string s, PictureBox p)
