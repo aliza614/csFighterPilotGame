@@ -25,8 +25,10 @@ namespace csFighterPilotGame
             {
                 BackColor = System.Drawing.Color.White,
                 Size = new System.Drawing.Size(5, 5),
-                
-                Location = new System.Drawing.Point(X, Y),
+
+                //Location = new System.Drawing.Point(X, Y),
+                Top = Y,
+                Left = X,
                 Tag = "bullet"
             };
             MessageBox.Show($"X: {X}, Y: {Y} Form1.MAX_HEIGHT: {Form1.MAX_HEIGHT}");
@@ -47,23 +49,29 @@ namespace csFighterPilotGame
             */
             if (direction.Equals("left"))
             {
-                X = bullet.Location.X - bulletSpeed;
-                Y = bullet.Location.Y - bulletSpeed;
-                bullet.Location = new System.Drawing.Point(X, Y);
+                X = bullet.Left - bulletSpeed;
+                Y = bullet.Top - bulletSpeed;
+                //bullet.Location = new System.Drawing.Point(X, Y);
+                bullet.Top = Y;
+                bullet.Left = X;
             }
             if (direction.Equals("right"))
             {
 
-                X = bullet.Location.X + bulletSpeed;
-                Y = bullet.Location.Y - bulletSpeed;
-                bullet.Location = new System.Drawing.Point(X,Y);
+                X = bullet.Left + bulletSpeed;
+                Y = bullet.Top - bulletSpeed;
+                //bullet.Location = new System.Drawing.Point(X, Y);
+                bullet.Top = Y;
+                bullet.Left = X;
             }
             if (direction.Equals("up"))
             {
 
-                X = bullet.Location.X + 0;
-                Y = bullet.Location.Y - bulletSpeed;
-                bullet.Location = new System.Drawing.Point(X,Y);
+                X = bullet.Left + 0;
+                Y = bullet.Top - bulletSpeed;
+                //bullet.Location = new System.Drawing.Point(X, Y);
+                bullet.Top = Y;
+                bullet.Left = X;
             }
             MessageBox.Show($"the new x is {X} the new y is {Y}");
             if ( bullet.Left < 10 || bullet.Left > 800 - 10 || bullet.Top < 10 || bullet.Top > 600 - 10)
