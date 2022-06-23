@@ -5,6 +5,10 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csFighterPilotGame", "csFighterPilotGame\csFighterPilotGame.csproj", "{894C1DC0-39B0-4E27-AC5D-89A6826587DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csFighterPilotGameTest", "csFighterPilotGameTest\csFighterPilotGameTest.csproj", "{4E37081E-6DC0-4939-9D7C-D847EDDB1DAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csFighterPilotGameTest2", "csFighterPilotGameTest2\csFighterPilotGameTest2.csproj", "{C35E14DA-BF05-4FEB-9C7A-12B53A3643A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{894C1DC0-39B0-4E27-AC5D-89A6826587DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{894C1DC0-39B0-4E27-AC5D-89A6826587DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{894C1DC0-39B0-4E27-AC5D-89A6826587DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E37081E-6DC0-4939-9D7C-D847EDDB1DAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E37081E-6DC0-4939-9D7C-D847EDDB1DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E37081E-6DC0-4939-9D7C-D847EDDB1DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E37081E-6DC0-4939-9D7C-D847EDDB1DAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C35E14DA-BF05-4FEB-9C7A-12B53A3643A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C35E14DA-BF05-4FEB-9C7A-12B53A3643A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C35E14DA-BF05-4FEB-9C7A-12B53A3643A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C35E14DA-BF05-4FEB-9C7A-12B53A3643A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

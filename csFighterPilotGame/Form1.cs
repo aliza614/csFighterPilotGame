@@ -16,10 +16,10 @@ namespace csFighterPilotGame
         string facing = "up";
         int health = 100;
         int points = 0;
-        int speed = 20;
+        int speed = 3;
         int ammo = 20;
         internal const int BULLET_SPEED = 30;
-        internal int blockSpeed = 10;
+        internal int blockSpeed = 1;
         int score = 0;
         bool isGameOver = false;
         //if you change this must update bullet
@@ -138,15 +138,17 @@ namespace csFighterPilotGame
             if (isLeft && player.Left > 0)
             {
                 //MessageBox.Show("going left");
-                player.Left -= speed;
+                //player.Left -= speed;
+                MovePB(player, -speed, 0);
             }
             if (isRight && player.Left < MAX_WIDTH - 10)
             {
                 //MessageBox.Show("going right");
-                player.Left += speed;
+                //player.Left += speed;
+                MovePB(player, speed, 0);
             }
             //for each object a in program
-            foreach (Control control in player.Controls)
+            foreach (Control control in this.Controls)
             {
 
 
@@ -174,7 +176,7 @@ namespace csFighterPilotGame
                 if (control is PictureBox && control.Tag.Equals("block"))
                 {
                     var block = (PictureBox)control;
-                    block.Top += blockSpeed;
+                    MovePB(block,0,blockSpeed);
                     if (block.Bounds.IntersectsWith(player.Bounds))
                     {
                         health -= 1;
@@ -205,16 +207,19 @@ namespace csFighterPilotGame
                             //change image color or remove
                             switch (block.BackColor.Name)
                             {
-                                case "red":
+                                case "Red":
                                     block.BackColor = Color.Yellow;
                                     break;
-                                case "yellow":
+                                case "Yellow":
                                     block.BackColor = Color.Green;
                                     break;
-                                case "green":
+                                case "Green":
                                     this.Controls.Remove(block);
                                     block.Dispose();
                                     new Block().MakeBlock(this);
+                                    break;
+                                default:
+                                    MessageBox.Show("wrong color for block");
                                     break;
                             }
 
@@ -258,11 +263,11 @@ namespace csFighterPilotGame
             Bullet bullet = new Bullet
             {
                 direction = direction,
-                X = player.Location.X + player.Width / 2,
-                Y = player.Location.Y + player.Height / 2
+                X = player.Left + player.Width / 2,
+                Y = player.Top + player.Height / 2
             };
-            MessageBox.Show($"bullet.X: {bullet.X}, bullet.Y: {bullet.Y}, player.Top: {player.Top}");
-            bullet.MakeBullet(this);
+            //MessageBox.Show($"bullet.X: {bullet.X}, bullet.Y: {bullet.Y}, player.Top: {player.Top}");
+            bullet.MakeBullet(this,bullet.X,bullet.Y);
         }
         public bool IntersectsWith(string s, PictureBox p)
         {
@@ -277,6 +282,12 @@ namespace csFighterPilotGame
             }
             return false;
 
+        }
+        public static PictureBox MovePB(PictureBox pb,int deltaX, int deltaY)
+        {
+            pb.Left += deltaX;
+            pb.Top += deltaY;
+            return pb;
         }
     }
 }

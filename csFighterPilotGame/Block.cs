@@ -9,13 +9,13 @@ namespace csFighterPilotGame
 {
     public class Block
     {
-
+        PictureBox pictureBox=new PictureBox();
         public void MakeBlock(Form1 form)
         {
             Random random = new Random();
             PictureBox block = new PictureBox();
             block.BackColor = Color.Red;
-            block.Size = new Size(40, 40);
+            block.Size = new Size(35, 35);
             block.Tag = "block";
             do
             {
@@ -25,6 +25,11 @@ namespace csFighterPilotGame
             } while (form.IntersectsWith("player", block));
             form.Controls.Add(block);
             block.BringToFront();
+        }
+        public void Move(int deltaX, int deltaY)
+        {
+            this.pictureBox.Left+= deltaX;
+            this.pictureBox.Top += deltaY;
         }
 
     }
